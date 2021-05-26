@@ -6,18 +6,16 @@ using UnityEngine.Networking;
 using TMPro;
 public class LoginPageManager : MonoBehaviour
 {
-
     public TMP_InputField userName;
     public TMP_InputField password;
     [SerializeField] private string login_Url;
 
-    PlayerPrefsManager playerPrefsManager;
-    private string login_Request;    
+    private string login_Request;
     public string Login_Request
     {
         get
         {
-            login_Request = "";
+            login_Request = "{'userName': '"+userName+"','password': '"+password+"'";
             login_Request = login_Request.Replace("'","\"");
             return login_Request;
         }
@@ -25,8 +23,9 @@ public class LoginPageManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerPrefsManager = gameObject.GetComponent<PlayerPrefsManager>();
-        userName.text = playerPrefsManager.userName;//PlayerPrefs.GetString("username");
+        //playerPrefsManager = gameObject.GetComponent<PlayerPrefsManager>();
+        //print("dv "+ PlayerPrefsManager.instance.userName);
+        userName.text = PlayerPrefsManager.instance.UserName;//PlayerPrefs.GetString("username");
         password.text = PlayerPrefs.GetString("password");
     }
 

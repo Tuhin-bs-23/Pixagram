@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class ScrollingCalendar : MonoBehaviour
 {
     public RectTransform monthsScrollingPanel;
@@ -33,7 +33,7 @@ public class ScrollingCalendar : MonoBehaviour
     public InputField inputFieldMonths;
     public InputField inputFieldYears;
 
-    public Text dateText;
+    public TextMeshProUGUI dateText;
 
     private int daysSet;
     private int monthsSet;
@@ -186,7 +186,7 @@ public class ScrollingCalendar : MonoBehaviour
         else
             dayString = dayString + "th";
 
-        dateText.text = monthString + " " + dayString + " " + yearsString;
+        //dateText.text = monthString + " " + dayString + " " + yearsString;
     }
 
     public void DaysScrollUp()
