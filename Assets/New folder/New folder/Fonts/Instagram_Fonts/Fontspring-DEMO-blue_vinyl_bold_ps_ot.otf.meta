@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 968f3c282f9dca8438d8a4914eb1367a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - FONTSPRING DEMO - Blue Vinyl
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7217c82a859e5d34bb7f84e2c2ae4e9c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
