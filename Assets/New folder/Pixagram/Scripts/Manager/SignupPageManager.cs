@@ -6,19 +6,19 @@ using UnityEngine.Networking;
 using TMPro;
 public class SignupPageManager : MonoBehaviour
 {
-    public GameObject userPhoneOrEmailPanel;
-    public GameObject optPanel;
-    public GameObject userNamePanel;
-    public GameObject passwordInputPanel;
-    public GameObject dateInputPanel;
-    public GameObject signUpConfirmationPanel;
+    public TMP_InputField phoneNumber;
+    public TMP_InputField email;
 
-    void Start()
+
+    public void NextButton(TMP_InputField inputfield)
     {
-        userPhoneOrEmailPanel.SetActive(true);
-        optPanel.SetActive(false);
-        userNamePanel.SetActive(false);
-        passwordInputPanel.SetActive(false);
-        dateInputPanel.SetActive(false);
+        if (string.IsNullOrEmpty(inputfield.text))
+        {
+            Debug.Log("Fill all field");
+        }
+        else
+        {
+            
+        }
     }
 }

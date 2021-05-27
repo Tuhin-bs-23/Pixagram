@@ -27,6 +27,7 @@ public class PageManager : SerializedMonoBehaviour
     public void ToggleBottomNavigation(bool status)
     {
         bottomNavBar.SetActive(status);
-
     }
+
+    
 }

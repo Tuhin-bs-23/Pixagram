@@ -37,11 +37,11 @@ public class LoginPageManager : MonoBehaviour
         }
         else
         {
-            StartCoroutine(HitAPI(login_Url, Login_Request, "POST"));
+            StartCoroutine(RequestAPI(login_Url, Login_Request, "POST"));
         }
     }
 
-    public IEnumerator HitAPI(string url, string apiPerameter, string method)
+    public IEnumerator RequestAPI(string url, string apiPerameter, string method)
     {
         var www = new UnityWebRequest(url, method);
         string requetTo = apiPerameter + "}";
