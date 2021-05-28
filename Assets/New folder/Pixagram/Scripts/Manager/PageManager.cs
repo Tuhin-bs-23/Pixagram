@@ -40,7 +40,7 @@ public class PageManager : SerializedMonoBehaviour
         //if (!isBack && currentPage != null) Breadcrumb.Push(currentPage); 
         
         currentPage = page;
-        if (!isBack && currentPage != null) Breadcrumb.Push(currentPage);
+        //if (!isBack && currentPage != null) Breadcrumb.Push(currentPage);
         currentPage.ShowPage();
         
     }
