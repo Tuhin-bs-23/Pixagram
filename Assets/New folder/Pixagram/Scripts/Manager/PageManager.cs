@@ -14,6 +14,7 @@ public class PageManager : SerializedMonoBehaviour
     public GameObject bottomNavBar;
     private void Start()
     {
+        Breadcrumb = new Stack<UIPage>();
         ShowPage("loginPage");
     }
     public void ShowPage(UIPage page)
@@ -36,11 +37,8 @@ public class PageManager : SerializedMonoBehaviour
     private void ShowPage(UIPage page, bool showBG = true, bool isBack = false)
     {
         uiPages.ForEach(r => r.Value.HidePage());
-
-        //if (!isBack && currentPage != null) Breadcrumb.Push(currentPage); 
-        
         currentPage = page;
-        //if (!isBack && currentPage != null) Breadcrumb.Push(currentPage);
+        if (!isBack && currentPage != null) Breadcrumb.Push(currentPage);
         currentPage.ShowPage();
         
     }
@@ -52,23 +50,24 @@ public class PageManager : SerializedMonoBehaviour
     public void OnBackButtonPressed()
     {
         
-
+        
         if (Breadcrumb.Count > 0)
         {
             if (currentPage.blockBackButtonAction)
             {
-                ShowPage(Breadcrumb.Pop(), true);
-               
+                currentPage.backButtonFunction?.Invoke();
+
             }
             else
             {
-                ShowPage(Breadcrumb.Pop(), isBack: true);
+                UIPage goToPage = Breadcrumb.Pop();
+                ShowPage(goToPage);
             }
 
-            return;
+            
         }
 
 
-        currentPage.backButtonFunction?.Invoke();
+       
     }
 }

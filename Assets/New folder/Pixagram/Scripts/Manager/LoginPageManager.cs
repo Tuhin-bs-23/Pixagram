@@ -4,52 +4,77 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using TMPro;
+using Newtonsoft.Json;
+using System.Text;
+
 public class LoginPageManager : MonoBehaviour
 {
-    public TMP_InputField userName;
-    public TMP_InputField password;
-    [SerializeField] private string login_Url;
+    public TMP_InputField usernameInput;
+    public TMP_InputField passwordInput;
 
-    private string login_Request;
-    public string Login_Request
-    {
-        get
-        {
-            login_Request = "{'userName': '"+userName+"','password': '"+password+"'";
-            login_Request = login_Request.Replace("'","\"");
-            return login_Request;
-        }
-    }
-    // Start is called before the first frame update
+    public GameObject LoadingPanel;
+    public Button signInButton;
+    
+    
     void Start()
     {
-        //playerPrefsManager = gameObject.GetComponent<PlayerPrefsManager>();
-        //print("dv "+ PlayerPrefsManager.instance.userName);
-        userName.text = PlayerPrefsManager.instance.UserName;//PlayerPrefs.GetString("username");
-        password.text = PlayerPrefs.GetString("password");
+        usernameInput.text = PlayerPrefs.HasKey("username")?PlayerPrefs.GetString("username"):"";
+        passwordInput.text = PlayerPrefs.HasKey("password") ? PlayerPrefs.GetString("password") : "";
     }
 
     public void Signin()
     {
-        if (string.IsNullOrEmpty(userName.text) || string.IsNullOrEmpty(password.text))
+        if (string.IsNullOrEmpty(usernameInput.text) || string.IsNullOrEmpty(passwordInput.text))
         {
-            Debug.Log("Fill all field");
+            MessageBoxController.instance.ShowMessage("Please Fill All The Fields");
         }
         else
         {
-            StartCoroutine(RequestAPI(login_Url, Login_Request, "POST"));
+            //StartCoroutine(RequestAPI());
+            AppManager.instance.pageManager.ShowPage("Dashboard");
         }
     }
 
-    public IEnumerator RequestAPI(string url, string apiPerameter, string method)
+    public IEnumerator RequestAPI()
     {
-        var www = new UnityWebRequest(url, method);
-        string requetTo = apiPerameter + "}";
-        byte[] bodyRaw = new System.Text.UTF8Encoding().GetBytes(requetTo);
-
-        www.uploadHandler = new UploadHandlerRaw(bodyRaw);
-        www.downloadHandler = new DownloadHandlerBuffer();
-        www.SetRequestHeader("","");
-        yield return www.SendWebRequest();
+        StartLoadingSignInButton(true);
+        SignInRequest userData = new SignInRequest();
+        string url = StringResources.baseURL + StringResources.signIn;
+        userData.username = usernameInput.text;
+        userData.password = passwordInput.text;
+        
+        string bodyJsonString = JsonConvert.SerializeObject(userData);
+        var request = new UnityWebRequest(url, "POST");
+        byte[] bodyRaw = Encoding.UTF8.GetBytes(bodyJsonString);
+        request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
+        request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+        yield return request.SendWebRequest();
+        if (request.result == UnityWebRequest.Result.ConnectionError)
+        {
+            string jsonResponse = request.downloadHandler.text;
+            SignInRequest apiResponse = JsonConvert.DeserializeObject<SignInRequest>(jsonResponse);
+            Debug.Log(request.error);
+            Debug.Log("Failure");
+        }
+        else
+        {
+            string jsonResponse = request.downloadHandler.text;
+            JsonSerializerSettings jsonSetting = new JsonSerializerSettings();
+            jsonSetting.NullValueHandling = NullValueHandling.Ignore;
+            SignInResponse apiResponse = JsonConvert.DeserializeObject<SignInResponse>(jsonResponse, jsonSetting);
+            AppManager.instance.bearerToken = apiResponse.data;
+            AppManager.instance.pageManager.ShowPage("Dashboard");
+        }
+        StartLoadingSignInButton(false);
     }
+
+    public void StartLoadingSignInButton(bool status)
+    {
+        signInButton.interactable = !status;
+        signInButton.GetComponentInChildren<TextMeshProUGUI>().gameObject.SetActive(!status);
+        LoadingPanel.SetActive(status);
+    }
+
+    
 }
