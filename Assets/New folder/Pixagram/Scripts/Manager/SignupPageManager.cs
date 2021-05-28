@@ -9,9 +9,9 @@ using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 
 [Serializable]
-public class ToggolMenu
+public class ToggleMenu
 {
-    public GameObject toggolItem;
+    public GameObject toggleItem;
     public TextMeshProUGUI text;
     public Image image;
 }
@@ -20,25 +20,31 @@ public class SignupPageManager : SerializedMonoBehaviour
     public TMP_InputField phoneNumber;
     public TMP_InputField email;
 
-    public ToggolMenu[] toggolMenu;
-
-    int toggolSelectedNo = 1;
+    public ToggleMenu[] toggleMenu;
+    int idInputOption;
     private void Start()
     {
-        ToggoledAction(0);
+        ToggledAction(0);
     }
 
-    public void ToggoledAction(int i)
+    public void ToggledAction(int i)
     {
-        foreach (var menu in toggolMenu)
+        foreach (var menu in toggleMenu)
         {
-            menu.toggolItem.SetActive(false);
-            menu.image.color = new Color(50f, 50f, 50f, 128f);
-            menu.text.color = new Color(50f, 50f, 50f, 128f);
+            menu.toggleItem.SetActive(false);
+            menu.image.color = Color.grey;// new Color(50f, 50f, 50f, 128f);
+            menu.text.color = Color.grey;// new Color(50f, 50f, 50f, 128f);
         }
-        toggolMenu[i].toggolItem.SetActive(true);
-        toggolMenu[i].image.color = new Color(0, 0, 0, 255f);
-        toggolMenu[i].text.color = new Color(0, 0, 0, 255f);
+        toggleMenu[i].toggleItem.SetActive(true);
+        toggleMenu[i].image.color = new Color(0, 0, 0, 255f);
+        toggleMenu[i].text.color = new Color(0, 0, 0, 255f);
+        phoneNumber.text = "";
+        email.text = "";
+        idInputOption = i;
+    }
+    public void IdInputNextButton()
+    {
+
     }
     public void NextButton(TMP_InputField inputfield)
     {

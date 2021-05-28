@@ -4,10 +4,11 @@ public class UIPage : MonoBehaviour
 {
     public UnityEvent OnPageActive;
     public UnityEvent OnPageClose;
- 
+    public UnityEvent backButtonFunction;
     public bool navBarShow = true;
+    public bool blockBackButtonAction;
 
-    
+
     public void ShowPage()
     {
         gameObject.SetActive(true);
