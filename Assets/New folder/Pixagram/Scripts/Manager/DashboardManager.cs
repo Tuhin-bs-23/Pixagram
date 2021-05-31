@@ -8,12 +8,14 @@ using UnityEngine.UI;
 public class DashboardManager : MonoBehaviour
 {
     public GameObject postPrefab;
+    public GameObject[] posts;
 
+    public RectTransform postScrollingPanel;
     IndividualPostManager individualPostManager;
     // Start is called before the first frame update
     void Start()
     {
-        individualPostManager = postPrefab.GetComponent<IndividualPostManager>();
+        
     }
 
 
@@ -43,7 +45,21 @@ public class DashboardManager : MonoBehaviour
             JsonSerializerSettings jsonSetting = new JsonSerializerSettings();
             jsonSetting.NullValueHandling = NullValueHandling.Ignore;
             DashboardResponse apiResponse = JsonConvert.DeserializeObject<DashboardResponse>(jsonResponse, jsonSetting);
-            individualPostManager.nameTxt.text = apiResponse.post[1].profilename;
+            
+            for (int i = 0; i < apiResponse.post.Count; i++)
+            {
+                GameObject postItem = Instantiate(postPrefab, postScrollingPanel);
+                individualPostManager = postItem.GetComponent<IndividualPostManager>();
+
+                individualPostManager.nameTxt.text = apiResponse.post[i].profilename;
+                individualPostManager.locationTxt.text = apiResponse.post[i].location;
+                //individualPostManager.profileImage
+                //individualPostManager.postedImage
+                individualPostManager.post.text = apiResponse.post[i].postBody;
+                individualPostManager.reactiontxt.text = apiResponse.post[i].reactionlist == "0" ? "" : apiResponse.post[i].reactionlist+" Likes";
+                individualPostManager.commentsTxt.text = apiResponse.post[i].commentslist == "0" ? "" : "View All " + apiResponse.post[i].commentslist + " Comments";
+
+            }
             
         }
     }

@@ -9,6 +9,8 @@ public class IndividualPostManager : MonoBehaviour
     public TextMeshProUGUI nameTxt;
     public TextMeshProUGUI locationTxt;
     public TextMeshProUGUI post;
+    public TextMeshProUGUI reactiontxt;
+    public TextMeshProUGUI commentsTxt;
 
     public Image profileImage;
     public Image postedImage;
@@ -49,6 +51,7 @@ public class IndividualPostManager : MonoBehaviour
         reactionListBtn.onClick.AddListener(() =>
         {
             Debug.Log("reactionListBtn button clicked");
+            AppManager.instance.pageManager.ShowPage("LikesPanel");
         });
         readFullPost.onClick.AddListener(() =>
         {
@@ -57,6 +60,7 @@ public class IndividualPostManager : MonoBehaviour
         commentsListBtn.onClick.AddListener(() =>
         {
             Debug.Log("commentsListBtn button clicked");
+            AppManager.instance.pageManager.ShowPage("CommentsPanel");
         });
     }
 }
