@@ -47,6 +47,7 @@ public class IndividualPostManager : MonoBehaviour
         messageBtn.onClick.AddListener(() =>
         {
             Debug.Log("messageBtn button clicked");
+            MessageBoxController.instance.ShowMessage("Alert", "Coming Soon...");
         });
         reactionListBtn.onClick.AddListener(() =>
         {

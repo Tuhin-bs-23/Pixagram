@@ -22,7 +22,7 @@ public class DashboardManager : MonoBehaviour
     public IEnumerator RequestAPI()
     {
         DashboardRequest dashboardData = new DashboardRequest();
-        string url = StringResources.baseURL + StringResources.signIn;
+        string url = StringResources.baseURL + StringResources.post;
         
 
         string bodyJsonString = JsonConvert.SerializeObject(dashboardData);
@@ -51,13 +51,13 @@ public class DashboardManager : MonoBehaviour
                 GameObject postItem = Instantiate(postPrefab, postScrollingPanel);
                 individualPostManager = postItem.GetComponent<IndividualPostManager>();
 
-                individualPostManager.nameTxt.text = apiResponse.post[i].profilename;
+                individualPostManager.nameTxt.text = apiResponse.post[i].userName;
                 individualPostManager.locationTxt.text = apiResponse.post[i].location;
                 //individualPostManager.profileImage
                 //individualPostManager.postedImage
                 individualPostManager.post.text = apiResponse.post[i].postBody;
-                individualPostManager.reactiontxt.text = apiResponse.post[i].reactionlist == "0" ? "" : apiResponse.post[i].reactionlist+" Likes";
-                individualPostManager.commentsTxt.text = apiResponse.post[i].commentslist == "0" ? "" : "View All " + apiResponse.post[i].commentslist + " Comments";
+                individualPostManager.reactiontxt.text = apiResponse.post[i].likes.Count == 0 ? "" : apiResponse.post[i].likes.Count+" Likes";
+                individualPostManager.commentsTxt.text = apiResponse.post[i].comments.Count == 0 ? "" : "View All " + apiResponse.post[i].comments.Count + " Comments";
 
             }
             
