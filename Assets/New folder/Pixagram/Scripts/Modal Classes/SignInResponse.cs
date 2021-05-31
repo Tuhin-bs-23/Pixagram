@@ -67,6 +67,7 @@ public class DashboardResponse
     public bool success;
     public int successCode;
     public List<DashboardPostResponse> post;
+    public DashboardPostResponse data;
     public string message;
     public List<string> errors;
 }

@@ -13,7 +13,9 @@ public class IndividualPostManager : MonoBehaviour
     public TextMeshProUGUI commentsTxt;
 
     public Image profileImage;
-    public Image postedImage;
+    
+
+    public RawImage postedImage;
 
     public Button profileBtn;
     public Button moreBtn;
@@ -24,8 +26,9 @@ public class IndividualPostManager : MonoBehaviour
     public Button readFullPost;
     public Button commentsListBtn;
 
-    
-
+    public GameObject likesText;
+    public GameObject CommentsText;
+    public GameObject likeImage;
     private void Start()
     {
         profileBtn.onClick.AddListener(() =>
@@ -39,6 +42,15 @@ public class IndividualPostManager : MonoBehaviour
         reactionBtn.onClick.AddListener(() =>
         {
             Debug.Log("reactionBtn button clicked");
+            if (likeImage.activeSelf)
+            {
+                likeImage.SetActive(false);
+            }
+            else
+            {
+                likeImage.SetActive(true);
+            }
+            
         });
         commentsBtn.onClick.AddListener(() =>
         {
@@ -63,5 +75,15 @@ public class IndividualPostManager : MonoBehaviour
             Debug.Log("commentsListBtn button clicked");
             AppManager.instance.pageManager.ShowPage("CommentsPanel");
         });
+        if (reactiontxt.text == "")
+        {
+            likesText.SetActive(false);
+        }
+        if (commentsTxt.text == "")
+        {
+            CommentsText.SetActive(false);
+        }
     }
+
+    
 }

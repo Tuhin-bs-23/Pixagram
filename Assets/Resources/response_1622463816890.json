@@ -1,0 +1,598 @@
+{
+  "success": true,
+  "successCode": 200,
+"post":[
+  {
+    "id": "60b1d1be31366745c2874a3e",
+    "postBody": "tgfdgbfdbv",
+    "userName": "string",
+    "userId": "60b0c57f17569353b5b7e60b",
+    "location": "regdfsv",
+    "createdAt": "2021-05-29T05:31:41.995Z",
+    "updatedAt": "0001-01-01T00:00:00Z",
+    "medias": [
+      "https://drive.google.com/file/d/1sOSyJwc0LFuwDoQvCKcX-R61iOb92TAP/view",
+      "C:\\Users\\BS567\\Desktop\\Pixo\\src\\Pixogram\\Pixogram.Api\\images\\w2puw3r2.4jh"
+    ],
+    "comments": [
+      {
+        "id": null,
+        "userName": "string",
+        "message": "string",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-29T20:47:35.095Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "string",
+        "message": "This is a nice post",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-30T12:05:25.318Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "string",
+        "message": "nisanfjkgd knkj",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-30T12:21:02.289Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "string",
+        "message": "sdg sd sh sgdfh sh",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T05:51:49.645Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:45.177Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:48.552Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:48.727Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:48.906Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:49.079Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:49.234Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:49.388Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:49.559Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:49.699Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:49.851Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:50.005Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:50.127Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:50.287Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:50.435Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:50.59Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:50.969Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:51.126Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:51.284Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:51.452Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:51.595Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:51.752Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:51.904Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:58:52.044Z",
+        "postId": "60b1d1be31366745c2874a3e"
+      }
+    ],
+    "likes": [
+      {
+        "id": null,
+        "userName": "string",
+        "userProfileImage": "no image",
+        "userId": "60b0c57f17569353b5b7e60b",
+        "postId": "60b1d1be31366745c2874a3e"
+      }
+    ]
+  },
+  {
+    "id": "60b4cdd7e9140fbcffcab19a",
+    "postBody": "help post",
+    "userName": "Maruf",
+    "userId": "60b0c4b467767fac7a5338fa",
+    "location": "Dhaka",
+    "createdAt": "2021-05-31T11:51:51.358Z",
+    "updatedAt": "0001-01-01T00:00:00Z",
+    "medias": [
+      "C:\\Users\\BS567\\Desktop\\Pixo\\src\\Pixogram\\Pixogram.Api\\images\\ctyispj3.ad0"
+    ],
+    "comments": [
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:59:09.859Z",
+        "postId": "60b4cdd7e9140fbcffcab19a"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:59:12.271Z",
+        "postId": "60b4cdd7e9140fbcffcab19a"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:59:12.371Z",
+        "postId": "60b4cdd7e9140fbcffcab19a"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:59:12.526Z",
+        "postId": "60b4cdd7e9140fbcffcab19a"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:59:12.67Z",
+        "postId": "60b4cdd7e9140fbcffcab19a"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:59:12.914Z",
+        "postId": "60b4cdd7e9140fbcffcab19a"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:59:13.063Z",
+        "postId": "60b4cdd7e9140fbcffcab19a"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:59:13.214Z",
+        "postId": "60b4cdd7e9140fbcffcab19a"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:59:13.347Z",
+        "postId": "60b4cdd7e9140fbcffcab19a"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:59:13.494Z",
+        "postId": "60b4cdd7e9140fbcffcab19a"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "message": "help needed",
+        "userProfilePic": "No Pic",
+        "createdAt": "2021-05-31T11:59:13.612Z",
+        "postId": "60b4cdd7e9140fbcffcab19a"
+      }
+    ],
+    "likes": [
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4cdd7e9140fbcffcab19a"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4cdd7e9140fbcffcab19a"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4cdd7e9140fbcffcab19a"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4cdd7e9140fbcffcab19a"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4cdd7e9140fbcffcab19a"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4cdd7e9140fbcffcab19a"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4cdd7e9140fbcffcab19a"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4cdd7e9140fbcffcab19a"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4cdd7e9140fbcffcab19a"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4cdd7e9140fbcffcab19a"
+      }
+    ]
+  },
+  {
+    "id": "60b4ce01e9140fbcffcab19b",
+    "postBody": "Mymensingh district",
+    "userName": "Maruf",
+    "userId": "60b0c4b467767fac7a5338fa",
+    "location": "Mymensigh",
+    "createdAt": "2021-05-31T11:52:33.586Z",
+    "updatedAt": "0001-01-01T00:00:00Z",
+    "medias": [
+      "C:\\Users\\BS567\\Desktop\\Pixo\\src\\Pixogram\\Pixogram.Api\\images\\422ijpgu.b5p"
+    ],
+    "comments": [],
+    "likes": []
+  },
+  {
+    "id": "60b4ce1ae9140fbcffcab19c",
+    "postBody": "going to dhaka",
+    "userName": "Maruf",
+    "userId": "60b0c4b467767fac7a5338fa",
+    "location": "Dhaka",
+    "createdAt": "2021-05-31T11:52:58.737Z",
+    "updatedAt": "0001-01-01T00:00:00Z",
+    "medias": [
+      "C:\\Users\\BS567\\Desktop\\Pixo\\src\\Pixogram\\Pixogram.Api\\images\\2qruv5it.0ss"
+    ],
+    "comments": [],
+    "likes": []
+  },
+  {
+    "id": "60b4ce2ce9140fbcffcab19d",
+    "postBody": "going to jp",
+    "userName": "Maruf",
+    "userId": "60b0c4b467767fac7a5338fa",
+    "location": "jamalpur",
+    "createdAt": "2021-05-31T11:53:16.857Z",
+    "updatedAt": "0001-01-01T00:00:00Z",
+    "medias": [
+      "C:\\Users\\BS567\\Desktop\\Pixo\\src\\Pixogram\\Pixogram.Api\\images\\5igw1zo0.law"
+    ],
+    "comments": [],
+    "likes": []
+  },
+  {
+    "id": "60b4ce43e9140fbcffcab19e",
+    "postBody": "going to Melandah",
+    "userName": "Maruf",
+    "userId": "60b0c4b467767fac7a5338fa",
+    "location": "Melandah",
+    "createdAt": "2021-05-31T11:53:39.939Z",
+    "updatedAt": "0001-01-01T00:00:00Z",
+    "medias": [
+      "C:\\Users\\BS567\\Desktop\\Pixo\\src\\Pixogram\\Pixogram.Api\\images\\00euehpe.exc"
+    ],
+    "comments": [],
+    "likes": []
+  },
+  {
+    "id": "60b4ce4fe9140fbcffcab19f",
+    "postBody": "going to Rajshahi",
+    "userName": "Maruf",
+    "userId": "60b0c4b467767fac7a5338fa",
+    "location": "Rajshahi",
+    "createdAt": "2021-05-31T11:53:51.568Z",
+    "updatedAt": "0001-01-01T00:00:00Z",
+    "medias": [
+      "C:\\Users\\BS567\\Desktop\\Pixo\\src\\Pixogram\\Pixogram.Api\\images\\qfv5ykvy.qmb"
+    ],
+    "comments": [],
+    "likes": [
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4ce4fe9140fbcffcab19f"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4ce4fe9140fbcffcab19f"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4ce4fe9140fbcffcab19f"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4ce4fe9140fbcffcab19f"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4ce4fe9140fbcffcab19f"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4ce4fe9140fbcffcab19f"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4ce4fe9140fbcffcab19f"
+      }
+    ]
+  },
+  {
+    "id": "60b4ce58e9140fbcffcab1a0",
+    "postBody": "going to Khulna",
+    "userName": "Maruf",
+    "userId": "60b0c4b467767fac7a5338fa",
+    "location": "Khulna",
+    "createdAt": "2021-05-31T11:54:00.616Z",
+    "updatedAt": "0001-01-01T00:00:00Z",
+    "medias": [
+      "C:\\Users\\BS567\\Desktop\\Pixo\\src\\Pixogram\\Pixogram.Api\\images\\ngu1vyrd.dfp"
+    ],
+    "comments": [],
+    "likes": []
+  },
+  {
+    "id": "60b4ce69e9140fbcffcab1a1",
+    "postBody": "going to Mahmudpur",
+    "userName": "Maruf",
+    "userId": "60b0c4b467767fac7a5338fa",
+    "location": "Mahmudpur",
+    "createdAt": "2021-05-31T11:54:17.519Z",
+    "updatedAt": "0001-01-01T00:00:00Z",
+    "medias": [
+      "C:\\Users\\BS567\\Desktop\\Pixo\\src\\Pixogram\\Pixogram.Api\\images\\jhdubkkj.ab4"
+    ],
+    "comments": [],
+    "likes": []
+  },
+  {
+    "id": "60b4ce89e9140fbcffcab1a2",
+    "postBody": "Need blood",
+    "userName": "Maruf",
+    "userId": "60b0c4b467767fac7a5338fa",
+    "location": "India",
+    "createdAt": "2021-05-31T11:54:49.321Z",
+    "updatedAt": "0001-01-01T00:00:00Z",
+    "medias": [
+      "C:\\Users\\BS567\\Desktop\\Pixo\\src\\Pixogram\\Pixogram.Api\\images\\pfkrdisa.yyy"
+    ],
+    "comments": [],
+    "likes": []
+  },
+  {
+    "id": "60b4cef3e9140fbcffcab1a3",
+    "postBody": "Need AB+ blood ",
+    "userName": "Maruf",
+    "userId": "60b0c4b467767fac7a5338fa",
+    "location": "USA",
+    "createdAt": "2021-05-31T11:56:35.683Z",
+    "updatedAt": "0001-01-01T00:00:00Z",
+    "medias": [
+      "C:\\Users\\BS567\\Desktop\\Pixo\\src\\Pixogram\\Pixogram.Api\\images\\bu05w2pa.zix"
+    ],
+    "comments": [],
+    "likes": []
+  }
+],
+  "message": null,
+  "error": null
+}

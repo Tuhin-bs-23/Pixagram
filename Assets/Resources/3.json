@@ -1,0 +1,19 @@
+{
+  "success": true,
+  "successCode": 200,
+  "data": {
+    "postBody": "going to Mahmudpur",
+    "userName": "Maruf",
+    "userId": "60b0c4b467767fac7a5338fa",
+    "location": "Mahmudpur",
+    "createdAt": "2021-05-31T11:54:17.519Z",
+    "updatedAt": "0001-01-01T00:00:00Z",
+    "medias": [
+      "C:\\Users\\BS567\\Desktop\\Pixo\\src\\Pixogram\\Pixogram.Api\\images\\jhdubkkj.ab4"
+    ],
+    "comments": [],
+    "likes": []
+  },
+  "message": null,
+  "error": null
+}

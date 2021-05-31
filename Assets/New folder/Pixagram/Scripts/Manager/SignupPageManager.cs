@@ -57,25 +57,44 @@ public class SignupPageManager : SerializedMonoBehaviour
     {
         idInputButton.onClick.AddListener(() =>
         {
-            BodyJsonString("email");
+            //BodyJsonString("email");
+
+            //Temporary
+            AppManager.instance.pageManager.ShowPage("OtpPanel"); ButtonInteractable(false);
         });
         otpInputButton.onClick.AddListener(() =>
         {
-            BodyJsonString("otp");
+            //BodyJsonString("otp");
+
+            //Temporary
+            AppManager.instance.pageManager.ShowPage("InputUserNamePanel"); ButtonInteractable(false);
         });
         nameInputButton.onClick.AddListener(() =>
         {
             //save name
 
-            AppManager.instance.pageManager.ShowPage("PasswordInputPanel");
+
+            AppManager.instance.pageManager.ShowPage("PasswordInputPanel"); ButtonInteractable(false);
         });
         passwordInputButton.onClick.AddListener(() =>
         {
-            BodyJsonString("signup");
+            //BodyJsonString("signup");
+
+            //Temporary
+            AppManager.instance.pageManager.ShowPage("DateInputPanel"); ButtonInteractable(false);
+        });
+        dateInputButton.onClick.AddListener(() =>
+        {
+            //save date
+
+            AppManager.instance.pageManager.ShowPage("ConfirmationPanel"); ButtonInteractable(false);
         });
         userNameInputButton.onClick.AddListener(() =>
         {
-            BodyJsonString("username");
+            //BodyJsonString("username");
+
+            //Temporary
+            AppManager.instance.pageManager.ShowPage("ConfirmationPanel"); ButtonInteractable(false);
         });
     }
     public void ToggledAction(int i)
@@ -92,25 +111,22 @@ public class SignupPageManager : SerializedMonoBehaviour
         phoneNumberInput.text = "";
         emailInput.text = "";
         idInputOption = i;
-    }
-    public void IdInputNextButton()
-    {
-        
-    }
-    
+    }    
     void BodyJsonString(string requestObject)
     {
         switch (requestObject)
         {
             case "email":
                 responseType = "email";
-                SignUpEmailVerifiedRequest email = new SignUpEmailVerifiedRequest();
-                email.email = emailInput.text;
+                SignUpEmailVerifiedRequest email = new SignUpEmailVerifiedRequest
+                {
+                    email = emailInput.text
+                };
                 bodyJsonString = JsonConvert.SerializeObject(email);
                 StartCoroutine(RequestAPI());
                 break;
             case "otp":
-                responseType = "email";
+                responseType = "otp";
                 SignUpOTPVerifiedRequest otp = new SignUpOTPVerifiedRequest();
                 otp.otp = otpInput.text;
                 bodyJsonString = JsonConvert.SerializeObject(otp);
@@ -164,9 +180,7 @@ public class SignupPageManager : SerializedMonoBehaviour
         else
         {
             ResponseAPI(request.downloadHandler.text);
-            
         }
-        
     }
 
     void ResponseAPI(string jsonResponse)
@@ -206,7 +220,5 @@ public class SignupPageManager : SerializedMonoBehaviour
                     break;
             }
         }
-        
-        
     }
 }

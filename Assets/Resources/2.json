@@ -1,0 +1,69 @@
+{
+  "success": true,
+  "successCode": 200,
+  "data": {
+    "postBody": "going to Rajshahi",
+    "userName": "Maruf",
+    "userId": "60b0c4b467767fac7a5338fa",
+    "location": "Rajshahi",
+    "createdAt": "2021-05-31T11:53:51.568Z",
+    "updatedAt": "0001-01-01T00:00:00Z",
+    "medias": [
+      "C:\\Users\\BS567\\Desktop\\Pixo\\src\\Pixogram\\Pixogram.Api\\images\\qfv5ykvy.qmb"
+    ],
+    "comments": [],
+    "likes": [
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4ce4fe9140fbcffcab19f"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4ce4fe9140fbcffcab19f"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4ce4fe9140fbcffcab19f"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4ce4fe9140fbcffcab19f"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4ce4fe9140fbcffcab19f"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4ce4fe9140fbcffcab19f"
+      },
+      {
+        "id": null,
+        "userName": "Maruf",
+        "userProfileImage": "no image",
+        "userId": "60b0c4b467767fac7a5338fa",
+        "postId": "60b4ce4fe9140fbcffcab19f"
+      }
+    ]
+  },
+  "message": null,
+  "error": null
+}
