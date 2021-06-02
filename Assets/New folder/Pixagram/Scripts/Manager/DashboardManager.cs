@@ -36,13 +36,15 @@ public class DashboardManager : MonoBehaviour
             individualPostManager.nameTxt.text = apiResponse.post[i].userName;
             individualPostManager.locationTxt.text = apiResponse.post[i].location;
             //individualPostManager.profileImage
-            //individualPostManager.postedImage.texture
+            //individualPostManager.postedImage.texture.
+            //StartCoroutine(individualPostManager.GetImage(apiResponse.post[i].medias[0]));
             individualPostManager.post.text = apiResponse.post[i].postBody;
             individualPostManager.reactiontxt.text = apiResponse.post[i].likes.Count != 0 ? apiResponse.post[i].likes.Count + " Likes" : "";
             individualPostManager.commentsTxt.text = apiResponse.post[i].comments.Count == 0 ? "" : "View All " + apiResponse.post[i].comments.Count + " Comments";
 
         }
     }
+    
     public IEnumerator RequestAPI()
     {
         DashboardRequest dashboardData = new DashboardRequest();
@@ -50,7 +52,7 @@ public class DashboardManager : MonoBehaviour
         
 
         string bodyJsonString = JsonConvert.SerializeObject(dashboardData);
-        var request = new UnityWebRequest(url, "POST");
+        var request = new UnityWebRequest(url, "GET");
         byte[] bodyRaw = Encoding.UTF8.GetBytes(bodyJsonString);
         request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
@@ -78,7 +80,7 @@ public class DashboardManager : MonoBehaviour
                 individualPostManager.nameTxt.text = apiResponse.post[i].userName;
                 individualPostManager.locationTxt.text = apiResponse.post[i].location;
                 //individualPostManager.profileImage
-                //individualPostManager.postedImage = 
+                //individualPostManager.texture2D.LoadImage(apiResponse.post[i].medias[0]);
                 individualPostManager.post.text = apiResponse.post[i].postBody;
                 individualPostManager.reactiontxt.text = apiResponse.post[i].likes.Count == 0 ? "" : apiResponse.post[i].likes.Count+" Likes";
                 individualPostManager.commentsTxt.text = apiResponse.post[i].comments.Count == 0 ? "" : "View All " + apiResponse.post[i].comments.Count + " Comments";

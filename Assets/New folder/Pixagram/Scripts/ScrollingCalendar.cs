@@ -49,10 +49,10 @@ public class ScrollingCalendar : MonoBehaviour
 
         for (int i = 0; i < arrayYears.Length; i++)
         {
-            arrayYears[i] = 1900 + i;
+            arrayYears[i] = currentYear-i;// 1900 + i;
 
             GameObject clone = Instantiate(yearsButtonPrefab, yearsScrollingPanel);
-            clone.transform.localScale = new Vector3(1, 1, 1);
+            //clone.transform.localScale = new Vector3(1, 1, 1);
             clone.GetComponentInChildren<Text>().text = "" + arrayYears[i];
             clone.name = "Year_" + arrayYears[i];
             clone.AddComponent<CanvasGroup>();
@@ -186,7 +186,7 @@ public class ScrollingCalendar : MonoBehaviour
         else
             dayString = dayString + "th";
 
-        //dateText.text = monthString + " " + dayString + " " + yearsString;
+        dateText.text = monthString + " " + dayString + " " + yearsString;
     }
 
     public void DaysScrollUp()

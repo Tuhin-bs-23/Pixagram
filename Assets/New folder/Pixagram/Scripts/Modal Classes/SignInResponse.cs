@@ -13,7 +13,8 @@ public class SignInResponse
 
 public class SignInRequest
 {
-    public string username;
+    public string email;
+    public string phone;
     public string password;
 
 }

@@ -56,7 +56,7 @@ namespace UnityEngine.UI.Extensions.Examples
                 arrayYears[i] = 1900 + i;
 
                 GameObject clone = Instantiate(yearsButtonPrefab, yearsScrollingPanel);
-                clone.transform.localScale = new Vector3(1, 1, 1);
+                //clone.transform.localScale = new Vector3(1, 1, 1);
                 clone.GetComponentInChildren<Text>().text = "" + arrayYears[i];
                 clone.name = "Year_" + arrayYears[i];
                 clone.AddComponent<CanvasGroup>();

@@ -6,12 +6,11 @@ using UnityEngine;
 
 public static class StringResources
 {
-    public static string baseURL = "https://cems-virtualshow.com/api/v1/";
-    public readonly static string signIn = "signin";
-    public readonly static string signUp = "signup";
+    public static string baseURL = "http://172.16.229.250";
+    public readonly static string signIn = "/api/Auth/login";
+    public readonly static string signUp = "/api/Auth/register";
+    public readonly static string userCheck = "/api/User/check";
     public readonly static string post = "post";
     
-
-    public static string RootAssetURL = "https://cems-virtualshow.com";
 
 }

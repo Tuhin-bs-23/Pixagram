@@ -15,7 +15,7 @@ public class PageManager : SerializedMonoBehaviour
     private void Start()
     {
         Breadcrumb = new Stack<UIPage>();
-        ShowPage("loginPage");
+        //ShowPage("loginPage");
     }
     public void ShowPage(UIPage page)
     {
@@ -40,7 +40,6 @@ public class PageManager : SerializedMonoBehaviour
         currentPage = page;
         if (!isBack && currentPage != null) Breadcrumb.Push(currentPage);
         currentPage.ShowPage();
-        
     }
     public void ToggleBottomNavigation(bool status)
     {
@@ -48,26 +47,18 @@ public class PageManager : SerializedMonoBehaviour
     }
 
     public void OnBackButtonPressed()
-    {
-        
-        
+    {   
         if (Breadcrumb.Count > 0)
         {
             if (currentPage.blockBackButtonAction)
             {
                 currentPage.backButtonFunction?.Invoke();
-
             }
             else
             {
                 UIPage goToPage = Breadcrumb.Pop();
                 ShowPage(goToPage);
             }
-
-            
         }
-
-
-       
     }
 }

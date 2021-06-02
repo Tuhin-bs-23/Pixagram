@@ -30,8 +30,8 @@ public class LoginPageManager : MonoBehaviour
         }
         else
         {
-            //StartCoroutine(RequestAPI());
-            AppManager.instance.pageManager.ShowPage("Dashboard");
+            StartCoroutine(RequestAPI());
+            //AppManager.instance.pageManager.ShowPage("Dashboard");
         }
     }
 
@@ -40,7 +40,7 @@ public class LoginPageManager : MonoBehaviour
         StartLoadingSignInButton(true);
         SignInRequest userData = new SignInRequest();
         string url = StringResources.baseURL + StringResources.signIn;
-        userData.username = usernameInput.text;
+        userData.email = usernameInput.text;
         userData.password = passwordInput.text;
         
         string bodyJsonString = JsonConvert.SerializeObject(userData);
@@ -49,6 +49,9 @@ public class LoginPageManager : MonoBehaviour
         request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
+
+
+        Debug.Log(bodyJsonString);
         yield return request.SendWebRequest();
         if (request.result == UnityWebRequest.Result.ConnectionError)
         {
@@ -63,8 +66,18 @@ public class LoginPageManager : MonoBehaviour
             JsonSerializerSettings jsonSetting = new JsonSerializerSettings();
             jsonSetting.NullValueHandling = NullValueHandling.Ignore;
             SignInResponse apiResponse = JsonConvert.DeserializeObject<SignInResponse>(jsonResponse, jsonSetting);
-            AppManager.instance.bearerToken = apiResponse.data;
-            AppManager.instance.pageManager.ShowPage("Dashboard");
+            
+            if (apiResponse.success)
+            {
+                AppManager.instance.bearerToken = apiResponse.data;
+                AppManager.instance.pageManager.ShowPage("Dashboard");
+            }
+            else
+            {
+                MessageBoxController.instance.ShowMessage("Forgotten password for "+usernameInput.text+"?","Enter correct username and password");
+            }
+            
+            
         }
         StartLoadingSignInButton(false);
     }
@@ -72,7 +85,7 @@ public class LoginPageManager : MonoBehaviour
     public void StartLoadingSignInButton(bool status)
     {
         signInButton.interactable = !status;
-        signInButton.GetComponentInChildren<TextMeshProUGUI>().gameObject.SetActive(!status);
+        //signInButton.GetComponentInChildren<TextMeshProUGUI>().gameObject.SetActive(!status);
         LoadingPanel.SetActive(status);
     }
 
