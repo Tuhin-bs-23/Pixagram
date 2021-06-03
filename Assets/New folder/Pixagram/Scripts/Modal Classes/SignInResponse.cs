@@ -6,15 +6,17 @@ public class SignInResponse
 {
     public bool success;
     public int successCode;
-    public string data;
+    public Token data;
     public string message;
     public List<string> errors;
 }
-
+public class Token
+{
+    public string token;
+}
 public class SignInRequest
 {
-    public string email;
-    public string phone;
+    public string userid;
     public string password;
 
 }
@@ -53,8 +55,8 @@ public class SignUpNameVerifiedRequest
 public class SignUpRequest
 {
     public string email;
-    public string phone;
-    public string username;
+    public string fullname;
+    public string dateofbirth;
     public string password;
 }
 #endregion
@@ -67,8 +69,8 @@ public class DashboardResponse
 {
     public bool success;
     public int successCode;
-    public List<DashboardPostResponse> post;
-    public DashboardPostResponse data;
+    public List<DashboardPostResponse> data;
+    //public DashboardPostResponse data;
     public string message;
     public List<string> errors;
 }
@@ -116,3 +118,13 @@ public class Comment
     public List<string> errors;
 }
 #endregion
+public class PostLike
+{
+    public string postid;
+}
+
+public class PostComment
+{
+    public string postid;
+    public string commentbody;
+}

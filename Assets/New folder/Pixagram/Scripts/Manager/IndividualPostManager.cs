@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 using Newtonsoft.Json;
 using UnityEngine.Networking;
+using System.Text;
 
 public class IndividualPostManager : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class IndividualPostManager : MonoBehaviour
     public Button reactionListBtn;
     public Button readFullPost;
     public Button commentsListBtn;
+    public Button commentPostBtn;
 
     public GameObject likesText;
     public GameObject CommentsText;
@@ -46,7 +48,8 @@ public class IndividualPostManager : MonoBehaviour
     IndividualLikeManager individualLikeManager;
     IndividualCommentManager individualCommentManager;
     int i;
-    
+    string bodyJsonString;
+    string urlType;
 
     private void Start()
     {
@@ -101,11 +104,22 @@ public class IndividualPostManager : MonoBehaviour
             {
                 likeImage.SetActive(true);
             }
-
+            urlType = "reaction";
+            PostLike postlike = new PostLike();
+            postlike.postid = postID;
+            bodyJsonString = JsonConvert.SerializeObject(postlike);
+            StartCoroutine(RequestUrl(StringResources.postLike));
         });
         commentsBtn.onClick.AddListener(() =>
         {
             Debug.Log("commentsBtn button clicked");
+            foreach (var comment in comments)
+            {
+                DashboardManager.instance.commentScrollingPanel.ForceUpdateRectTransforms();
+                GameObject commentItem = Instantiate(commentPrefab, DashboardManager.instance.commentScrollingPanel);
+                individualCommentManager = commentItem.GetComponent<IndividualCommentManager>();
+                individualCommentManager.message.text = "<b>" + comment.userName + "</b> " + comment.message;
+            }
             AppManager.instance.pageManager.ShowPage("CommentsPanel");
         });
         messageBtn.onClick.AddListener(() =>
@@ -143,6 +157,19 @@ public class IndividualPostManager : MonoBehaviour
             }
             AppManager.instance.pageManager.ShowPage("CommentsPanel");
         });
+        commentPostBtn.onClick.AddListener(() =>
+        {
+            if (commentsTxt.text!=null)
+            {
+                urlType = "comment";
+                PostComment postComment = new PostComment();
+                postComment.postid = postID;
+                postComment.commentbody = commentsTxt.text;
+                bodyJsonString = JsonConvert.SerializeObject(postComment);
+                StartCoroutine(RequestUrl(StringResources.postComment));
+            }
+            
+        });
     }
 
     public void SetImage()
@@ -176,9 +203,12 @@ public class IndividualPostManager : MonoBehaviour
         }
     }
 
-    IEnumerator RequestUrl(string url)
+    IEnumerator RequestUrl(string extendUrl)
     {
+        string url = StringResources.baseURL + extendUrl;
         var request = new UnityWebRequest(url, "POST");
+        byte[] bodyRaw = Encoding.UTF8.GetBytes(bodyJsonString);
+        request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
         yield return request.SendWebRequest();

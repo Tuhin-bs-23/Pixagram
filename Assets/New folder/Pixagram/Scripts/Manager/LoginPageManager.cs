@@ -40,7 +40,7 @@ public class LoginPageManager : MonoBehaviour
         StartLoadingSignInButton(true);
         SignInRequest userData = new SignInRequest();
         string url = StringResources.baseURL + StringResources.signIn;
-        userData.email = usernameInput.text;
+        userData.userid = usernameInput.text;
         userData.password = passwordInput.text;
         
         string bodyJsonString = JsonConvert.SerializeObject(userData);
@@ -70,7 +70,7 @@ public class LoginPageManager : MonoBehaviour
             
             if (apiResponse.success)
             {
-                AppManager.instance.bearerToken = apiResponse.data;
+                AppManager.instance.bearerToken = apiResponse.data.token;
                 AppManager.instance.pageManager.ShowPage("Dashboard");
             }
             else

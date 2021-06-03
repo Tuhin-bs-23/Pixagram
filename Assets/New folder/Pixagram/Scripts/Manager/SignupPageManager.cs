@@ -85,7 +85,7 @@ public class SignupPageManager : SerializedMonoBehaviour
         {
             //save name
 
-
+            PlayerPrefs.SetString("fullname", nameInput.text);
             AppManager.instance.pageManager.ShowPage("PasswordInputPanel"); ButtonInteractable(false);
         });
         passwordInputButton.onClick.AddListener(() =>
@@ -176,8 +176,8 @@ public class SignupPageManager : SerializedMonoBehaviour
                 responseType = "signup";
                 SignUpRequest userData = new SignUpRequest();
                 userData.email = PlayerPrefs.HasKey("useremail") ? PlayerPrefs.GetString("useremail") : "";
-                userData.phone = PlayerPrefs.HasKey("userphone") ? PlayerPrefs.GetString("userphone") : "";
-                userData.username = PlayerPrefs.HasKey("username") ? PlayerPrefs.GetString("username") : "";
+                //userData.phone = PlayerPrefs.HasKey("userphone") ? PlayerPrefs.GetString("userphone") : "";
+                userData.fullname = PlayerPrefs.HasKey("fullname") ? PlayerPrefs.GetString("fullname") : "";
                 userData.password = passwordInput.text;
                 bodyJsonString = JsonConvert.SerializeObject(userData);
                 StartCoroutine(RequestAPI(StringResources.signUp));
