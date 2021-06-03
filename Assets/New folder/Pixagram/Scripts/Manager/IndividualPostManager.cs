@@ -35,8 +35,19 @@ public class IndividualPostManager : MonoBehaviour
     public GameObject likeImage;
     public GameObject heartImage;
     public GameObject postImage;
+    public GameObject likesPrefab;
+    public GameObject commentPrefab;
 
+    public List<Like> likes;
+    public List<Comment> comments;
+
+    public string postID;
+
+    IndividualLikeManager individualLikeManager;
+    IndividualCommentManager individualCommentManager;
     int i;
+    
+
     private void Start()
     {
         ButtonAction();
@@ -105,6 +116,15 @@ public class IndividualPostManager : MonoBehaviour
         reactionListBtn.onClick.AddListener(() =>
         {
             Debug.Log("reactionListBtn button clicked");
+            DashboardManager.instance.LikeScrollingPanel.DestoryAllChildImmediate();
+            foreach (var like in likes)
+            {
+                DashboardManager.instance.LikeScrollingPanel.ForceUpdateRectTransforms();
+                GameObject likeItem = Instantiate(likesPrefab, DashboardManager.instance.LikeScrollingPanel);
+                individualLikeManager = likeItem.GetComponent<IndividualLikeManager>();
+                individualLikeManager.profileName.text = like.userName;
+                individualLikeManager.userName.text = like.userId;
+            }
             AppManager.instance.pageManager.ShowPage("LikesPanel");
         });
         readFullPost.onClick.AddListener(() =>
@@ -114,6 +134,13 @@ public class IndividualPostManager : MonoBehaviour
         commentsListBtn.onClick.AddListener(() =>
         {
             Debug.Log("commentsListBtn button clicked");
+            foreach (var comment in comments)
+            {
+                DashboardManager.instance.commentScrollingPanel.ForceUpdateRectTransforms();
+                GameObject commentItem = Instantiate(commentPrefab, DashboardManager.instance.commentScrollingPanel);
+                individualCommentManager = commentItem.GetComponent<IndividualCommentManager>();
+                individualCommentManager.message.text = "<b>" + comment.userName + "</b> " + comment.message;
+            }
             AppManager.instance.pageManager.ShowPage("CommentsPanel");
         });
     }
@@ -151,7 +178,7 @@ public class IndividualPostManager : MonoBehaviour
 
     IEnumerator RequestUrl(string url)
     {
-        var request = new UnityWebRequest(url, "GET");
+        var request = new UnityWebRequest(url, "POST");
         request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
         yield return request.SendWebRequest();

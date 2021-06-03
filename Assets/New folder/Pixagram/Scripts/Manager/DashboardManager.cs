@@ -7,17 +7,22 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 public class DashboardManager : MonoBehaviour
 {
+    public static DashboardManager instance;
+    
     public GameObject postPrefab;
-    public GameObject likesPrefab;
-    public GameObject commentPrefab;
-    public GameObject[] posts;
+    //public GameObject[] posts;
 
     public RectTransform postScrollingPanel;
     public RectTransform LikeScrollingPanel;
     public RectTransform commentScrollingPanel;
+
     IndividualPostManager individualPostManager;
     IndividualLikeManager individualLikeManager;
     IndividualCommentManager individualCommentManager;
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +43,7 @@ public class DashboardManager : MonoBehaviour
             Debug.Log(apiResponse.post.Count + " in " + i);
             GameObject postItem = Instantiate(postPrefab, postScrollingPanel);
             individualPostManager = postItem.GetComponent<IndividualPostManager>();
-
+            individualPostManager.postID = apiResponse.post[i].id;
             individualPostManager.nameTxt.text = apiResponse.post[i].userName;
             individualPostManager.locationTxt.text = apiResponse.post[i].location;
             //individualPostManager.profileImage
@@ -50,27 +55,11 @@ public class DashboardManager : MonoBehaviour
             individualPostManager.commentsTxt.text = apiResponse.post[i].comments.Count == 0 ? "" : "View All " + apiResponse.post[i].comments.Count + " Comments";
             if (apiResponse.post[i].likes.Count > 0)
             {
-                
-                LikeScrollingPanel.DestoryAllChildImmediate();
-                foreach (var like in (apiResponse.post[i].likes))
-                {
-                    
-                    LikeScrollingPanel.ForceUpdateRectTransforms();
-                    GameObject likeItem = Instantiate(likesPrefab, LikeScrollingPanel);
-                    individualLikeManager = likeItem.GetComponent<IndividualLikeManager>();
-                    individualLikeManager.profileName.text = like.userName;
-                    individualLikeManager.userName.text = like.userId;
-                }
+                individualPostManager.likes = apiResponse.post[i].likes;                
             }
             if (apiResponse.post[i].comments.Count > 0)
             {
-                foreach (var comment in (apiResponse.post[i].comments))
-                {
-                    commentScrollingPanel.ForceUpdateRectTransforms();
-                    GameObject commentItem = Instantiate(commentPrefab, commentScrollingPanel);
-                    individualCommentManager = commentItem.GetComponent<IndividualCommentManager>();
-                    individualCommentManager.message.text = "<b>" + comment.userName + "</b> " + comment.message;
-                }
+                individualPostManager.comments = apiResponse.post[i].comments;                
             }
         }
     }

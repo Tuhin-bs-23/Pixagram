@@ -77,6 +77,7 @@ public class DashboardPostResponse
     public bool success;
     public int successCode;
 
+    public string id;
     public string profileimage;
     public string userName;
     public string userId;

@@ -12,6 +12,9 @@ public static class StringResources
     public readonly static string userCheck = "/api/User/check";
     public readonly static string post = "/api/Post/getall";
     public readonly static string createPost = "/api/Post/create";
-    
+    public readonly static string postLike = "/api/Like/create/postid/{id}";
+    public readonly static string postComment = "/api/Comment/create";
+
+
 
 }
