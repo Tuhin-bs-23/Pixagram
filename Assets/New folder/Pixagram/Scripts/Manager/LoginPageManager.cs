@@ -59,6 +59,7 @@ public class LoginPageManager : MonoBehaviour
             SignInRequest apiResponse = JsonConvert.DeserializeObject<SignInRequest>(jsonResponse);
             Debug.Log(request.error);
             Debug.Log("Failure");
+            MessageBoxController.instance.ShowMessage("Error!", request.error);
         }
         else
         {

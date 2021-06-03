@@ -148,4 +148,22 @@ public class IndividualPostManager : MonoBehaviour
             SetImage();
         }
     }
+
+    IEnumerator RequestUrl(string url)
+    {
+        var request = new UnityWebRequest(url, "GET");
+        request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+        yield return request.SendWebRequest();
+        if (request.result == UnityWebRequest.Result.ConnectionError)
+        {
+            string jsonResponse = request.downloadHandler.text;
+            Debug.Log(request.error);
+            Debug.Log("Failure");
+        }
+        else
+        {
+            
+        }
+    }
 }

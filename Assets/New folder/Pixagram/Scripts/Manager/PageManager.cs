@@ -15,7 +15,7 @@ public class PageManager : SerializedMonoBehaviour
     private void Start()
     {
         Breadcrumb = new Stack<UIPage>();
-        //ShowPage("loginPage");
+        ShowPage("loginPage");
     }
     public void ShowPage(UIPage page)
     {

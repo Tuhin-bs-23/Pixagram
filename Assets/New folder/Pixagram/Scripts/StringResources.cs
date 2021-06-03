@@ -10,7 +10,8 @@ public static class StringResources
     public readonly static string signIn = "/api/Auth/login";
     public readonly static string signUp = "/api/Auth/register";
     public readonly static string userCheck = "/api/User/check";
-    public readonly static string post = "post";
+    public readonly static string post = "/api/Post/getall";
+    public readonly static string createPost = "/api/Post/create";
     
 
 }
