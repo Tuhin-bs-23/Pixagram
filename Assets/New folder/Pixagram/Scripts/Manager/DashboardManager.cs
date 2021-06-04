@@ -94,7 +94,7 @@ public class DashboardManager : MonoBehaviour
                 GameObject postItem = Instantiate(postPrefab, postScrollingPanel);
                 individualPostManager = postItem.GetComponent<IndividualPostManager>();
                 individualPostManager.postID = apiResponse.data[i].id;
-                individualPostManager.nameTxt.text = apiResponse.data[i].userName;
+                individualPostManager.nameTxt.text = apiResponse.data[i].id;
                 individualPostManager.locationTxt.text = apiResponse.data[i].location;
                 //individualPostManager.profileImage
 

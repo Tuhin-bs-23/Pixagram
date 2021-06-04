@@ -121,7 +121,7 @@ public class IndividualPostManager : MonoBehaviour
                 DashboardManager.instance.commentScrollingPanel.ForceUpdateRectTransforms();
                 GameObject commentItem = Instantiate(commentPrefab, DashboardManager.instance.commentScrollingPanel);
                 individualCommentManager = commentItem.GetComponent<IndividualCommentManager>();
-                individualCommentManager.message.text = "<b>" + comment.userName + "</b> " + comment.message;
+                individualCommentManager.message.text = "<b>" + comment.user.userName + "</b> " + comment.message;
             }
             AppManager.instance.pageManager.ShowPage("CommentsPanel");
         });
@@ -139,8 +139,8 @@ public class IndividualPostManager : MonoBehaviour
                 DashboardManager.instance.LikeScrollingPanel.ForceUpdateRectTransforms();
                 GameObject likeItem = Instantiate(likesPrefab, DashboardManager.instance.LikeScrollingPanel);
                 individualLikeManager = likeItem.GetComponent<IndividualLikeManager>();
-                individualLikeManager.profileName.text = like.userName;
-                individualLikeManager.userName.text = like.userId;
+                individualLikeManager.profileName.text = like.user.userFullName;
+                individualLikeManager.userName.text = like.user.userName;
             }
             AppManager.instance.pageManager.ShowPage("LikesPanel");
         });
@@ -156,7 +156,7 @@ public class IndividualPostManager : MonoBehaviour
                 DashboardManager.instance.commentScrollingPanel.ForceUpdateRectTransforms();
                 GameObject commentItem = Instantiate(commentPrefab, DashboardManager.instance.commentScrollingPanel);
                 individualCommentManager = commentItem.GetComponent<IndividualCommentManager>();
-                individualCommentManager.message.text = "<b>" + comment.userName + "</b> " + comment.message;
+                individualCommentManager.message.text = "<b>" + comment.user.userName + "</b> " + comment.message;
             }
             AppManager.instance.pageManager.ShowPage("CommentsPanel");
         });
@@ -180,7 +180,8 @@ public class IndividualPostManager : MonoBehaviour
         postImage.SetActive(false);
         Texture2D texture = texture2D;
         if (texture == null) return;
-
+        RectTransform rt = postedImage.GetComponent<RectTransform>();
+        
         postedImage.sprite = Sprite.Create(texture,
             new Rect(0.0f, 0.0f, texture.width, texture.height),
             new Vector2(0.5f, 0.5f), 100.0f);
@@ -230,10 +231,12 @@ public class IndividualPostManager : MonoBehaviour
             else
             {
                 // Get downloaded asset bundle
-                texture2D = DownloadHandlerTexture.GetContent(request);
-                
-                texture2D.LoadImage( request.downloadHandler.data);
+                //texture2D = DownloadHandlerTexture.GetContent(request);
+
+                //texture2D.LoadImage( request.downloadHandler.data);
                 //texture2D = request.downloadHandler.data;
+                texture2D = null;
+                texture2D = ((DownloadHandlerTexture)request.downloadHandler).texture;
                 SetImage();
             }
         }

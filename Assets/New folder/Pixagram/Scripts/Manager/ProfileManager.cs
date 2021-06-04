@@ -17,9 +17,10 @@ public class ProfileManager : MonoBehaviour
     public RectTransform postItemScrollingPanel;
     public RectTransform LikeScrollingPanel;
     public RectTransform commentScrollingPanel;
+    public RectTransform profileScrollView;
 
+    public ScrollRect postScrollRect;
     IndividualPostManager individualPostManager;
-
     private void Awake()
     {
         instance = this;
@@ -29,6 +30,7 @@ public class ProfileManager : MonoBehaviour
         print("sfnjl");
         //ShowLocalFile();
         StartCoroutine(RequestAPI());
+        //LayoutRebuilder.ForceRebuildLayoutImmediate(profileScrollView);
     }
 
 
@@ -61,6 +63,7 @@ public class ProfileManager : MonoBehaviour
             jsonSetting.NullValueHandling = NullValueHandling.Ignore;
             DashboardResponse apiResponse = JsonConvert.DeserializeObject<DashboardResponse>(jsonResponse, jsonSetting);
             postScrollingPanel.ForceUpdateRectTransforms();
+            LayoutRebuilder.ForceRebuildLayoutImmediate(postItemScrollingPanel);
             for (int i = 0; i < apiResponse.data.Count; i++)
             {
                 GameObject postItem = Instantiate(postPrefab, postScrollingPanel);
@@ -91,6 +94,10 @@ public class ProfileManager : MonoBehaviour
                 postButton.onClick.AddListener(() =>
                  {
                      AppManager.instance.pageManager.ShowPage("ProfileDashboard");
+
+                     float scrollValue = postItem.GetComponent<RectTransform>().anchoredPosition.y / postScrollRect.content.rect.height;
+                     postScrollRect.verticalScrollbar.value = scrollValue;
+                     LayoutRebuilder.ForceRebuildLayoutImmediate(postScrollingPanel);
                  });
             }
         }

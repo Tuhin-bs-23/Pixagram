@@ -67,6 +67,25 @@ public class PostCreateManager : MonoBehaviour
 
 		Debug.Log("Permission result: " + permission);
 	}
+	Texture2D DuplicateTexture(Texture2D source)
+	{
+		RenderTexture renderTex = RenderTexture.GetTemporary(
+					source.width,
+					source.height,
+					0,
+					RenderTextureFormat.Default,
+					RenderTextureReadWrite.Linear);
+
+		Graphics.Blit(source, renderTex);
+		RenderTexture previous = RenderTexture.active;
+		RenderTexture.active = renderTex;
+		Texture2D readableText = new Texture2D(source.width, source.height);
+		readableText.ReadPixels(new Rect(0, 0, renderTex.width, renderTex.height), 0, 0);
+		readableText.Apply();
+		RenderTexture.active = previous;
+		RenderTexture.ReleaseTemporary(renderTex);
+		return readableText;
+	}
 	string bodyJsonString;
 	IEnumerator RequestUrl(string extendUrl)
 	{
@@ -97,9 +116,9 @@ public class PostCreateManager : MonoBehaviour
 	{
 		WWWForm form = new WWWForm();
 		//form.AddField("image",)
-		//form.AddBinaryData("image", texture2D.EncodeToPNG(), "myImage.png", "image/png");
-		form.AddField("location", "post body");
-		form.AddField("postbody", "post body");
+		form.AddBinaryData("image", DuplicateTexture(texture2D).EncodeToPNG(), "myImage.png", "image/png");
+		//form.AddField("location", "post body");
+		//form.AddField("postbody", "post body");
 		
 
 		using (UnityWebRequest www = UnityWebRequest.Post(StringResources.baseURL + StringResources.createPost, form))

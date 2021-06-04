@@ -98,13 +98,19 @@ public class Like
     public bool success;
     public int successCode;
 
-    public string profileimage;
-    public string userName;
-    public string userId;
-    public string relation;
+    public string id;
+    public User user;
 
     public string message;
     public List<string> errors;
+}
+public class User
+{
+    public string id;
+    public string userName;
+    public string email;
+    public string userProfileImage;
+    public string userFullName;
 }
 public class Comment
 {
@@ -112,8 +118,7 @@ public class Comment
     public int successCode;
 
     public string id;
-    public string userProfilePic;
-    public string userName;
+    public User user;
     public string message;
 
     public List<string> errors;

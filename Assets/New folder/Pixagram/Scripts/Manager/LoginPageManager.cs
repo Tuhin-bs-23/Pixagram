@@ -18,8 +18,8 @@ public class LoginPageManager : MonoBehaviour
     
     void Start()
     {
-        usernameInput.text = PlayerPrefs.HasKey("username")?PlayerPrefs.GetString("username"):"";
-        passwordInput.text = PlayerPrefs.HasKey("password") ? PlayerPrefs.GetString("password") : "";
+        //usernameInput.text = PlayerPrefs.HasKey("username")?PlayerPrefs.GetString("username"):"";
+        //passwordInput.text = PlayerPrefs.HasKey("password") ? PlayerPrefs.GetString("password") : "";
     }
 
     public void Signin()
