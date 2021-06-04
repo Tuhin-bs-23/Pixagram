@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -56,7 +57,7 @@ public class SignUpRequest
 {
     public string email;
     public string fullname;
-    public string dateofbirth;
+    //public DateTime dateofbirth;
     public string password;
 }
 #endregion

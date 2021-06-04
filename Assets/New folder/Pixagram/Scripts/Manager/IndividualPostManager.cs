@@ -49,6 +49,7 @@ public class IndividualPostManager : MonoBehaviour
     IndividualLikeManager individualLikeManager;
     IndividualCommentManager individualCommentManager;
     int i;
+    bool isLiked;
     string bodyJsonString;
     string urlType;
 
@@ -59,6 +60,7 @@ public class IndividualPostManager : MonoBehaviour
         if (reactiontxt.text == "")
         {
             likesText.SetActive(false);
+            isLiked = false;
         }
         if (commentsTxt.text == "")
         {
@@ -186,10 +188,11 @@ public class IndividualPostManager : MonoBehaviour
     }
     public void LikeManage()
     {
-        if (likes.Count>0)
+        if (likes.Count > 0)
         {
             likesText.SetActive(true);
             reactiontxt.text = likes.Count + " Likes";
+            
         }
         else
         {
@@ -199,7 +202,7 @@ public class IndividualPostManager : MonoBehaviour
     }
     public IEnumerator GetImage(string url)
     {
-        var request = new UnityWebRequest(url, "GET");
+        /*var request = new UnityWebRequest(StringResources.baseURL+url, "GET");
         request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
         yield return request.SendWebRequest();
@@ -213,7 +216,28 @@ public class IndividualPostManager : MonoBehaviour
         {
             texture2D.LoadImage(request.downloadHandler.data);
             SetImage();
+        }*/
+        using (UnityWebRequest request = UnityWebRequestTexture.GetTexture(StringResources.baseURL+"/" + url))
+        {
+            //request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+            Debug.Log(request.url);
+            yield return request.SendWebRequest();
+
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(request.error);
+            }
+            else
+            {
+                // Get downloaded asset bundle
+                texture2D = DownloadHandlerTexture.GetContent(request);
+                
+                texture2D.LoadImage( request.downloadHandler.data);
+                //texture2D = request.downloadHandler.data;
+                SetImage();
+            }
         }
+
     }
 
     IEnumerator RequestUrl(string extendUrl)
@@ -224,6 +248,7 @@ public class IndividualPostManager : MonoBehaviour
         request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
         request.SetRequestHeader("Authorization", "Bearer " + AppManager.instance.bearerToken);
+        request.SetRequestHeader("Content-Type", "application/json");
         Debug.Log(AppManager.instance.bearerToken);
         print(url);
         print(bodyJsonString);
