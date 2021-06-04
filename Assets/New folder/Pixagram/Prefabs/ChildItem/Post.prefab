@@ -2989,6 +2989,7 @@ MonoBehaviour:
   post: {fileID: 463698588}
   reactiontxt: {fileID: 495411841}
   commentsTxt: {fileID: 7016123562412594735}
+  addCommentsTxt: {fileID: 2645424565022001030}
   profileImage: {fileID: 4286350475517898052}
   postedImage: {fileID: 6532598678197716132}
   texture2D: {fileID: 0}

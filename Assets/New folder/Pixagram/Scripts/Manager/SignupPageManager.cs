@@ -218,8 +218,17 @@ public class SignupPageManager : SerializedMonoBehaviour
         SignUpResponse apiResponse = JsonConvert.DeserializeObject<SignUpResponse>(jsonResponse, jsonSetting);
         if (!apiResponse.success)
         {
-            MessageBoxController.instance.ShowMessage(apiResponse.message);
-        }
+            //MessageBoxController.instance.ShowMessage(apiResponse.message);
+            switch (responseType)
+            {
+                case "email":
+                    PlayerPrefs.SetString("useremail", emailInput.text);
+                    AppManager.instance.userId = emailInput.text;
+                    //AppManager.instance.pageManager.ShowPage("OtpPanel");
+                    AppManager.instance.pageManager.ShowPage("InputNamePanel");
+                    break;
+            }
+            }
         else
         {
             switch (responseType)

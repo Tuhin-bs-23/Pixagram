@@ -15,6 +15,7 @@ public class IndividualPostManager : MonoBehaviour
     public TextMeshProUGUI post;
     public TextMeshProUGUI reactiontxt;
     public TextMeshProUGUI commentsTxt;
+    public InputField addCommentsTxt;
 
     public Image profileImage;
     public Image postedImage;
@@ -164,7 +165,7 @@ public class IndividualPostManager : MonoBehaviour
                 urlType = "comment";
                 PostComment postComment = new PostComment();
                 postComment.postid = postID;
-                postComment.commentbody = commentsTxt.text;
+                postComment.commentbody = addCommentsTxt.text;
                 bodyJsonString = JsonConvert.SerializeObject(postComment);
                 StartCoroutine(RequestUrl(StringResources.postComment));
             }
@@ -183,7 +184,19 @@ public class IndividualPostManager : MonoBehaviour
             new Vector2(0.5f, 0.5f), 100.0f);
         postedImage.preserveAspect = true;
     }
-
+    public void LikeManage()
+    {
+        if (likes.Count>0)
+        {
+            likesText.SetActive(true);
+            reactiontxt.text = likes.Count + " Likes";
+        }
+        else
+        {
+            likesText.SetActive(false);
+            reactiontxt.text = "";
+        }
+    }
     public IEnumerator GetImage(string url)
     {
         var request = new UnityWebRequest(url, "GET");
@@ -210,7 +223,10 @@ public class IndividualPostManager : MonoBehaviour
         byte[] bodyRaw = Encoding.UTF8.GetBytes(bodyJsonString);
         request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
-        request.SetRequestHeader("Content-Type", "application/json");
+        request.SetRequestHeader("Authorization", "Bearer " + AppManager.instance.bearerToken);
+        Debug.Log(AppManager.instance.bearerToken);
+        print(url);
+        print(bodyJsonString);
         yield return request.SendWebRequest();
         if (request.result == UnityWebRequest.Result.ConnectionError)
         {
@@ -220,7 +236,11 @@ public class IndividualPostManager : MonoBehaviour
         }
         else
         {
-            
+            print(request.downloadHandler.text);
+            if (urlType == "reaction")
+            {
+                print(request.downloadHandler.text);
+            }
         }
     }
 }

@@ -88,7 +88,7 @@ public class DashboardManager : MonoBehaviour
             JsonSerializerSettings jsonSetting = new JsonSerializerSettings();
             jsonSetting.NullValueHandling = NullValueHandling.Ignore;
             DashboardResponse apiResponse = JsonConvert.DeserializeObject<DashboardResponse>(jsonResponse, jsonSetting);
-            
+            postScrollingPanel.ForceUpdateRectTransforms();
             for (int i = 0; i < apiResponse.data.Count; i++)
             {
                 GameObject postItem = Instantiate(postPrefab, postScrollingPanel);
@@ -98,7 +98,7 @@ public class DashboardManager : MonoBehaviour
                 individualPostManager.locationTxt.text = apiResponse.data[i].location;
                 //individualPostManager.profileImage
 
-                //StartCoroutine(individualPostManager.GetImage(apiResponse.post[i].medias[0]));
+                StartCoroutine(individualPostManager.GetImage(apiResponse.data[i].medias[0]));
 
                 individualPostManager.post.text = apiResponse.data[i].postBody;
                 individualPostManager.reactiontxt.text = apiResponse.data[i].likes.Count != 0 ? apiResponse.data[i].likes.Count + " Likes" : "";
